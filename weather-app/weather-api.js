@@ -19,7 +19,6 @@ class WeatherAPI {
 
   async invokeURL(){
 
-    // 0.5, 0.4
     const responseObj = await fetch(this.url.toString());
 
     const responseContentInJSON = await responseObj.json();

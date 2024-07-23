@@ -1,8 +1,8 @@
-import {WeatherAPI} from "./weather-api.js"
+import { WeatherAPI } from "./weather-api.js"
 
 class WeatherApp {
 
-  init(){
+  init() {
 
     const searchTextfieldElement = document.querySelector(".search-box")
 
@@ -11,9 +11,9 @@ class WeatherApp {
 
   }
 
-  async handleAPIInvocation(event){
+  async handleAPIInvocation(event) {
 
-    if (event.key == "Enter"){
+    if (event.key == "Enter") {
 
       console.log("Enter key pressed")
 
@@ -24,23 +24,23 @@ class WeatherApp {
 
       const weatherAPIObj = new WeatherAPI();
       weatherAPIObj.constructURL(locationSuppliedByUser);
-    
+
       const responseJSON = await weatherAPIObj.invokeURL();
       console.log(responseJSON)
-    
+
       // Location
       const locationElement = document.querySelector(".location .city")
-      locationElement.innerText 
+      locationElement.innerText
         = `${responseJSON.name}, ${responseJSON.sys.country}`
-      
+
       // Date
 
       const today = new Date();
       const todayAsString = today.toLocaleDateString("en-US", {
-        year : 'numeric',
+        year: 'numeric',
         month: 'long',
         weekday: 'long',
-        day : 'numeric'
+        day: 'numeric'
       })
       const dateElement = document.querySelector(".location .date")
       dateElement.innerText = `${todayAsString}`
@@ -60,4 +60,4 @@ class WeatherApp {
   }
 }
 
-export {WeatherApp}
+export { WeatherApp }

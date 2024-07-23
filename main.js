@@ -1,4 +1,4 @@
-import { WeatherApp } from "./weather-app.js";
+import { WeatherApp } from "./weather-app/weather-app.js"; 
 
-const weatherAppObj = new WeatherApp();
+let weatherAppObj = new WeatherApp();
 weatherAppObj.init();
